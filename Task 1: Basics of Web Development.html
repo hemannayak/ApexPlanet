@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Introduction</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        /* Profile Image */
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px auto;
+            display: block;
+            border: 5px solid #3498db;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Content Sections */
+        .section {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #3498db;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        /* Links */
+        .links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        a {
+            color: white;
+            background-color: #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* Button */
+        .greet-btn {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 24px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .greet-btn:hover {
+            background-color: #27ae60;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Hello, I'm Alex</h1>
+            <p class="intro">Web Developer & Design Enthusiast</p>
+            <img src="https://placehold.co/600x600"
+                alt="Professional headshot of Alex, a web developer with short brown hair and glasses, smiling at the camera"
+                class="profile-img">
+        </header>
+
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I'm a passionate web developer with a love for creating beautiful, functional websites. With 3 years of
+                experience in HTML, CSS, and JavaScript, I enjoy turning ideas into interactive experiences.</p>
+            <p>When I'm not coding, you can find me hiking, reading science fiction, or experimenting with new coffee
+                brewing methods.</p>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <p>Front-end development, responsive design, UI/UX principles, and problem-solving.</p>
+        </div>
+
+        <div class="section">
+            <h2>Contact</h2>
+            <p>Feel free to reach out for collaborations or just to say hi!</p>
+        </div>
+
+        <button class="greet-btn" onclick="greet()">Click for Welcome Message</button>
+
+        <div class="links">
+            <a href="https://github.com" target="_blank">My GitHub</a>
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+
+    <script>
+        function greet() {
+            alert("Hello, welcome to my personal page! 👋");
+        }
+    </script>
+</body>
+
+</html>
