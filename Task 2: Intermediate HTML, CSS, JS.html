@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form & To-Do List</title>
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3498db;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Form Styles */
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        /* To-Do List Styles */
+        .todo-container {
+            margin-top: 30px;
+        }
+
+        .todo-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .todo-item button {
+            background-color: #e74c3c;
+        }
+
+        .todo-item button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav a {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav>
+            <h1>My Website</h1>
+            <div>
+                <a href="#contact">Contact</a>
+                <a href="#todo">To-Do List</a>
+            </div>
+        </nav>
+
+        <section id="contact">
+            <h2>Contact Form</h2>
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <p id="formMessage" style="color: green;"></p>
+        </section>
+
+        <section id="todo" class="todo-container">
+            <h2>To-Do List</h2>
+            <input type="text" id="todoInput" placeholder="Add a new task">
+            <button id="addTodoBtn">Add Task</button>
+            <ul class="todo-list" id="todoList"></ul>
+        </section>
+    </div>
+
+    <script>
+        // Form Validation and Submission
+        document.getElementById('contactForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            const formMessage = document.getElementById('formMessage');
+
+            // Simple validation
+            if (name && email && message) {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailPattern.test(email)) {
+                    formMessage.textContent = "Message sent successfully!";
+                    formMessage.style.color = "green";
+                    // Reset form fields
+                    document.getElementById('contactForm').reset();
+                } else {
+                    formMessage.textContent = "Please enter a valid email address.";
+                    formMessage.style.color = "red";
+                }
+            } else {
+                formMessage.textContent = "All fields are required.";
+                formMessage.style.color = "red";
+            }
+        });
+
+        // To-Do List Functionality
+        document.getElementById('addTodoBtn').addEventListener('click', function () {
+            const todoInput = document.getElementById('todoInput');
+            const todoText = todoInput.value;
+            const todoList = document.getElementById('todoList');
+
+            if (todoText) {
+                const todoItem = document.createElement('li');
+                todoItem.className = 'todo-item';
+                todoItem.innerHTML = `
+                    ${todoText}
+                    <button onclick="this.parentElement.remove()">Delete</button>
+                `;
+                todoList.appendChild(todoItem);
+                todoInput.value = ''; // Clear input
+            }
+        });
+    </script>
+</body>
+
+</html>
